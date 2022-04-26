@@ -1,0 +1,5 @@
+wc popular-names.txt
+
+sed popular-names.txt
+
+cat popular-names.txt 
