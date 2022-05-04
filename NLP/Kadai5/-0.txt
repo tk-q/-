@@ -1,1 +1,2 @@
-https://qiita.com/nymwa/items/8e054e524b70331c16db
+ cat ai/ai.ja.txt | cabocha -f3 > ai.ja.txt.parsed
+
