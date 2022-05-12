@@ -185,27 +185,34 @@ stop_words = ['i',
  "wouldn't"]
 text=[]
 co1=0
-with open('sentiment.txt') as f:
-    contents = f.read()
-    for i1 in contents.split("\n"):
-        l = mecab.parse(i1)
-        co=0
-        for p in l.split("\n"):
-            s=p.split("\t")
-            if len(s)<3:
-                continue
-            if not(((s[3] in stop_words))or s[3]=="." or
-                   s[3]=="," or s[3]=="'" or s[3]=="（" or s[3]==")" or s[3]=="．" or s[3]=="）"or s[3]=="-" or s[3]==";"or  s[3]=="--"):
-                if s[0]=='0' or s[0]=='1':
-                    print(''.join(text))
-                    text=[]
-                text.append(s[3])
-                text.append(" ")
-                co1=0
+
+path_w = 'resu.txt'
+
+
+with open(path_w, mode='w') as q:
+    with open('sentiment.txt') as f:
+        contents = f.read()
+        for i1 in contents.split("\n"):
+            l = mecab.parse(i1)
+            co=0
+            for p in l.split("\n"):
+                s=p.split("\t")
+                if len(s)<3:
+                    continue
+                if not(((s[3] in stop_words))or s[3]=="." or
+                       s[3]=="," or s[3]=="'" or s[3]=="（" or s[3]==")" or s[3]=="．" or s[3]=="）"or s[3]=="-" or s[3]==";"or  s[3]=="--"):
+                    if s[0]=='0' or s[0]=='1':
+                        print(''.join(text))
+                        q.write(''.join(text))
+                        text=[]
+                    text.append(s[3])
+                    text.append(" ")
+                    co1=0
             
-            s=[]
-        if l[0]==",":
-            continue
+                s=[]
+            if l[0]==",":
+                continue
+q.close()
            
         
                     
