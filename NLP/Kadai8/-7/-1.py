@@ -36,10 +36,8 @@ import seaborn as sns
 from sklearn.datasets import make_blobs
 from sklearn.cluster import KMeans
 
-model1 = KMeans(n_clusters=5, random_state=0, init='random')  # initを省略すると、k-means++法が適応される(randomではk-means法が適応)
+model1 = KMeans(n_clusters=5, random_state=0, init='random') 
 model1.fit(X)
-clusters = model1.predict(X)  # データが属するクラスターのラベルを取得
+clusters = model1.predict(X) 
 print(clusters)
-
-# model.cluster_centers_ でクラスター重心の座標を取得できる
 
